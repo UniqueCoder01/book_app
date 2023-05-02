@@ -10,7 +10,7 @@ export const cartSlice = createSlice({
   reducers: {
     addItem: (state, action) => {
       let obj = state.value.find(obj => action.payload.id === obj.id);
-      let key = action.payload.category;
+      let key = action.payload.name;
       if (obj) {
         state.noOfItems[key] = state.noOfItems[key] + 1;
       } else {
@@ -25,10 +25,26 @@ export const cartSlice = createSlice({
       state.value.push(newItems);
       state.totalItems--;
     },
+    increaseItemCount: (state, action) => {
+      console.log(action.payload);
+      let bookName = action.payload;
+      state.noOfItems[bookName]++;
+    },
+    decreaseItemCount: (state, action) => {
+      let bookName = action.payload;
+      if (action.payload !== 0) {
+        state.noOfItems[bookName]--;
+      } else {
+        let newItems = state.filter(val => val.id !== bookName);
+        state.value.push(newItems);
+        state.totalItems--;
+      }
+    },
   },
 });
 
 export default cartSlice.reducer;
-export const {addItem, removeItem} = cartSlice.actions;
+export const {addItem, removeItem, increaseItemCount, decreaseItemCount} =
+  cartSlice.actions;
 
 //id-->of book

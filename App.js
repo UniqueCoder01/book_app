@@ -26,7 +26,8 @@ function App() {
                 <NavigationContainer>
                     <Stack.Navigator
                         screenOptions={{
-                            headerShown: false
+                            headerShown: false,
+                            animation: 'none'
                         }}
                     // initialRouteName="Checkout"
 
