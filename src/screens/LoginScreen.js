@@ -21,6 +21,7 @@ import {colors, font} from '../constant/GlobalcCss';
 import MainWrapper from '../components/MainWrapper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {responsiveScreenHeight} from 'react-native-responsive-dimensions';
+import {scale, verticalScale, moderateScale} from 'react-native-size-matters';
 const LoginScreen = ({navigation}) => {
   const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
